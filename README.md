@@ -1,2 +1,3 @@
 # Parallel and Distributed Computing
-This repository contains projects and exercises from a Parallel and Distributed Computing course, covering HPC tools and libraries like OpenDCIM, OpenMP, MPI and CUDA. Most of the results that are presented were obtained by executing the jobs on SNOW, the DTIC's new HPC cluster,
+This repository contains code from a course on HPC. Topics include shared-memory and distributed-memory programming with OpenMP and MPI, GPU acceleration with CUDA and OpenACC, and performance optimization techniques.
+
