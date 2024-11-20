@@ -1,0 +1,71 @@
+main.c:
+delaunay.c:
+count_close_points:
+    133, Generating Multicore code
+        137, #pragma acc loop gang
+    139, Loop is parallelizable
+delaunay_triangulation:
+    157, Generating Multicore code
+        160, #pragma acc loop gang
+    162, Loop is parallelizable
+    164, Loop is parallelizable
+    173, Scalar last value needed after loop for inside at line 184
+save_triangulation_image:
+    204, Generating Multicore code
+        208, #pragma acc loop gang
+    210, Generating Multicore code
+        213, #pragma acc loop gang
+    220, Scalar last value needed after loop for triangle at line 229,228
+main.c:
+delaunay.c:
+distance:
+     35, Generating implicit acc routine seq
+         Generating acc routine seq
+         Generating Tesla code
+is_ccw:
+     42, Generating implicit acc routine seq
+         Generating acc routine seq
+         Generating Tesla code
+inside_circle:
+     53, Generating implicit acc routine seq
+         Generating acc routine seq
+         Generating Tesla code
+barycentric_coordinates:
+     78, Generating implicit acc routine seq
+         Generating acc routine seq
+         Generating Tesla code
+inside_triangle:
+     95, Generating implicit acc routine seq
+         Generating acc routine seq
+         Generating Tesla code
+count_close_points:
+    133, Generating copy(points[:num_points]) [if not already present]
+         Generating copyin(num_points) [if not already present]
+         Generating Tesla code
+        137, #pragma acc loop gang /* blockIdx.x */
+        139, #pragma acc loop vector(128) /* threadIdx.x */
+    139, Loop is parallelizable
+delaunay_triangulation:
+    157, Generating copy(num_triangles[:1]) [if not already present]
+         Generating copyin(points[:num_points]) [if not already present]
+         Generating copyout(triangles[:max_triangles]) [if not already present]
+         Generating Tesla code
+        160, #pragma acc loop gang /* blockIdx.x */
+        162, #pragma acc loop seq
+        164, #pragma acc loop vector(128) /* threadIdx.x */
+        173, #pragma acc loop seq
+    157, Local memory used for _T43582256_1327,_T43581944_1327
+    162, Loop is parallelizable
+    164, Loop is parallelizable
+    173, Scalar last value needed after loop for inside at line 184
+save_triangulation_image:
+    204, Generating Tesla code
+        208, #pragma acc loop gang, vector(128) /* blockIdx.x threadIdx.x */
+    204, Generating implicit copyout(image[:height*width]) [if not already present]
+    210, Generating copyin(points[:num_points],triangles[:num_triangles]) [if not already present]
+         Generating copy(image[:height*width]) [if not already present]
+         Generating Tesla code
+        213, #pragma acc loop gang, vector(128) collapse(2) /* blockIdx.x threadIdx.x */
+        214,   /* blockIdx.x threadIdx.x collapsed */
+    210, Local memory used for _T43580896_1328,_T43581208_1328
+    220, Scalar last value needed after loop for triangle at line 229,228
